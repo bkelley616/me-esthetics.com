@@ -1,0 +1,126 @@
+{% extends "base.html" %} {% block head %}
+<title>Home</title>
+<meta name="description" content="Home Page" />
+{% endblock head %} {% block content %}
+<div data-barba="container" data-barba-namespace="home"
+  class="text-primary-text-color bg-accent-lightgrey-color min-h-screen">
+  <div
+    class="hero-section lg:flex-row lg:p-24 relative flex flex-col items-center content-center justify-center py-24 overflow-hidden">
+    <div id="hero-section-image-wrapper">
+      <div class="sm:w-96 md:w-116 lg:w-144 xl:w-184 px-4" id="hero-section-image">
+        {% include "svg/drawings/influencer.html" %}
+      </div>
+    </div>
+    <div class="xl:m-8 leading-tight text-center" id="hero-section-header">
+      <p class="text-7xl xs:text-8xl md:text-9xl xl:text-10xl md:px-16 lg:px-0 px-4">
+        <span id="hero-section-text">Morgan </span><br class="lg:block hidden" />
+        <span id="hero-section-text">Elaine </span><br class="lg:block hidden" />
+        <span id="hero-section-text">Esthetics</span>
+      </p>
+    </div>
+    {% include "svg/dividers/home-hero-section-divider.html" %}
+  </div>  
+  <section>    
+    <div class="bg-accent-powderblue-color relative" >
+      <div data-scroll data-scroll-offset="15%, 0%" data-scroll-class="fade-in-left-apply" class="fade-in-left max-w-7xl lg:flex-row lg:px-8 flex flex-col items-center content-center justify-center px-4 py-32 mx-auto my-auto"  >  
+        <div> 
+          <div class="sm:w-84 md:w-104 lg:w-132 xl:w-172 ">
+            {% include "svg/drawings/certification.html" %}
+          </div>
+          <div class="fade-in-button">
+            <a href="/assets/documents/Morgan-Jackson-Resume.pdf" download 
+              class="button-link xs:w-64 xs:text-xl bg-accent-pink-color-medium hover:bg-accent-pink-color-dark focus:bg-accent-pink-color-dark duration-400 hover:-translate-y-1 focus:-translate-y-1 hover:shadow-2xl focus:shadow-2xl lg:-mt-20 relative z-10 flex items-end justify-center w-48 p-4 mx-auto -mt-8 text-lg font-bold leading-tight transition transform rounded-full shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="xs:h-8 xs:w-8 w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span >Resume</span>
+            </a>
+          </div>
+        </div> 
+        <p  class="xl:p-16 lg:text-left lg:pl-8 lg:pr-0 sm:text-3xl md:px-16 px-4 py-8 text-2xl text-center"><span class="font-extrabold">Licensed esthetician certified by the Brown Aveda Institute in:</span><span class="italic"> microdermabrasion, facial treatments, customized facials, facial waxing, body waxing, body wrapping, relaxation massage, electrotherapy, brow tinting, brow lamination, and makeup application</span></p>
+      </div>
+      {% include "svg/dividers/home-certification-divider.html" %}
+    </div>  
+
+    <div class="relative pt-32 pb-48" >  
+      <div data-scroll data-scroll-offset="15%, 0%" data-scroll-class="fade-in-apply" class="fade-in">
+        <div class="max-w-7xl xl:px-2 px-8 mx-auto">
+          <p class="sm:text-3xl mb-16 text-2xl text-center font-semibold">Join my growing portfolio of satisfied clientele ready to feel their best in their own skin!</p>
+        </div>
+        <div class="swiper-container portfolioSwiper"> 
+          <div class="swiper-wrapper"> 
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-1.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-2.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-3.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-4.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-5.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-6.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-7.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-8.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-9.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-10.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-11.jpg"></div>
+            <div class="swiper-slide loading"><img src="/assets/images/thumbnail/portfolio-12.jpg"></div>
+          </div> 
+        </div> 
+        <div class="fade-in-button relative z-10">
+          <a href="/portfolio"
+          class="button-link xs:w-64 xs:text-xl bg-accent-pink-color-medium hover:bg-accent-pink-color-dark focus:bg-accent-pink-color-dark duration-400 hover:-translate-y-1 focus:-translate-y-1 hover:shadow-2xl focus:shadow-2xl relative z-10 flex items-end justify-center w-48 p-4 mx-auto -mt-8 text-lg font-bold leading-tight transition transform rounded-full shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="xs:h-8 xs:w-8 w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>Portfolio</span> 
+          </a>  
+        </div>
+      </div> 
+      {% include "svg/dividers/home-portfolio-divider.html" %}
+    </div>
+
+    <div class="bg-accent-pink-color-medium relative pt-32 pb-48">
+      <div data-scroll data-scroll-offset="15%, 0%" data-scroll-class="fade-in-right-apply" class="fade-in-right max-w-7xl mx-auto lg:flex-row flex flex-col items-center content-center justify-center px-4">
+        <div class="sm:text-3xl text-2xl text-center font-semibold mt-8 lg:mt-0"><p>Sunday: Closed</p><p class="mt-2">Monday: Closed</p><p class="mt-2">Tuesday: 10am - 7pm</p><p class="mt-2">Wednesday: 10am - 7pm</p><p class="mt-2">Thursday: 10am - 7pm</p><p class="mt-2">Friday: 9am - 5pm</p><p class="mt-2">Saturday: 9am - 5pm</p></div>
+        <div class="order-first lg:order-last">
+          <div class="xs:w-92 sm:w-96 md:w-116 lg:w-144 xl:w-184">
+            {% include "svg/drawings/schedule.html" %}
+          </div>
+          <div class="fade-in-button">
+            <a href="/booking"
+              class="button-link xs:w-64 xs:text-xl bg-accent-powderblue-color hover:bg-accent-powderblue-color-medium focus:bg-accent-powderblue-color-medium duration-400 hover:-translate-y-1 focus:-translate-y-1 hover:shadow-2xl focus:shadow-2xl relative z-10 flex items-end justify-center w-48 p-4 mx-auto -mt-8 text-lg font-bold leading-tight transition transform rounded-full shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="xs:h-8 xs:w-8 w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>Booking</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% include "svg/dividers/home-booking-divider.html" %}
+    </div>
+
+    <div id="home-newsletter-section" class="relative pt-32 pb-48 px-4">
+      <div data-scroll data-scroll-offset="5%, 0%" data-scroll-class="fade-in-up-apply" class="fade-in-up">    
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col items-center content-center justify-center">
+            <div class="xs:w-92 sm:w-96 md:w-116 lg:w-144 xl:w-184">
+              {% include "svg/drawings/newsletter.html" %}
+            </div>
+            <div class="fade-in-button">
+              <a href="/newsletter"
+                class="button-link xs:w-64 xs:text-xl bg-accent-pink-color-medium hover:bg-accent-pink-color-dark focus:bg-accent-pink-color-dark duration-400 hover:-translate-y-1 focus:-translate-y-1 hover:shadow-2xl focus:shadow-2xl relative z-10 flex items-end justify-center w-48 p-4 mx-auto -mt-8 text-lg font-bold leading-tight transition transform rounded-full shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="xs:h-8 xs:w-8 w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                </svg>
+                <span>Newsletter</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="max-w-5xl mx-auto px-4 xs:px-8">
+          <p class="sm:text-3xl mt-16 text-2xl text-center font-semibold">Want to stay updated on my esthetics career? I post regular updates on where I working and what I am learning!</p>
+        </div>
+      </div>
+      {% include "svg/dividers/home-newsletter-divider.html" %}
+    </div>
+  </section>
+</div>
+{% endblock content %} 

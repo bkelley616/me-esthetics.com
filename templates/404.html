@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block head %}
+<title>Page Not Found</title>
+<meta name="description" content="404 Page Not Found" />
+{% endblock head %} {% block content %}
+<div data-barba="container" data-barba-namespace="404" class="text-primary-text-color bg-accent-powderblue-color">
+  <section class="relative min-h-screen py-24">
+    <div class="xs:text-6xl px-1 text-5xl font-semibold text-center">
+      <div class="inline-block" id="not-found-header">Page</div>
+      <div class="inline-block" id="not-found-header">Not</div>
+      <div class="inline-block" id="not-found-header">Found</div>
+    </div>
+    <div class="w-full max-w-lg px-4 mx-auto mt-10">
+      <div id="return-home-drawing-wrapper">
+        {% include "svg/drawings/not-found-404.html" %}
+      </div>
+      <div id="return-home-button-wrapper">
+        <a href="/"
+          class="button-link w-52 xs:w-64 xs:text-xl bg-accent-pink-color-medium hover:bg-accent-pink-color-dark focus:bg-accent-pink-color-dark duration-400 hover:-translate-y-1 focus:-translate-y-1 hover:shadow-2xl focus:shadow-2xl relative z-10 flex items-end justify-center p-4 mx-auto -mt-8 text-lg font-bold leading-tight transition transform rounded-full shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="xs:h-8 xs:w-8 w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span>Take Me Home!</span>
+        </a>
+      </div>
+
+    </div>
+
+    {% include "svg/dividers/404-divider.html" %}
+  </section>
+</div>
+
+{% endblock content %}

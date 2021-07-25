@@ -1,0 +1,49 @@
+.portfolio-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -1px;
+}
+
+.portfolio-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 61px;
+}
+
+.portfolio-divider .shape-fill {
+  fill: #33384D;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .portfolio-divider svg {
+      width: calc(100% + 1.3px);
+      height: 56px;
+  }
+}
+
+.portfolio-title {
+  position: relative;
+  font-weight: 900;
+  font-size: 4em;
+}
+
+.portfolio-title .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.portfolio-title .letter {
+  display: inline-block;
+  line-height: 1em;
+  transform-origin: 0 0;
+}

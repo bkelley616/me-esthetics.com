@@ -1,0 +1,30 @@
+
+<figure class="py-8">
+  <div id="image-container" class="loading-container content">
+    <div id="image-item" class="loading content">
+      <img id="image" class="rounded-xl mx-auto"
+      {% if internalSrc %}
+        src="/assets/blog/content-images/{{ internalSrc | safe}}"
+      {% elif externalSrc %}
+        src="{{ externalSrc | safe }}"
+      {% endif %}
+      {% if alt %}
+        alt = "{{ alt | safe}}"
+      {% endif %}
+      >
+    </div>
+  </div>
+
+  {% if description or source %}
+  <figcaption class="italic text-center mt-4">
+    {% if description %}
+    <span class="text-secondary-text-color ">{{ description | markdown(inline=true) | safe }}</span>
+    {% endif %}
+    {% if description and source %}<br>{% endif %}
+    {% if source %}
+    <a {% if href %} href="{{ href | safe }}"{% endif %} class="text-tertiary-text-color text-sm">Source: {{ source | markdown(inline=true) | safe }}</a>
+    {% endif %}
+  </figcaption>
+  {% endif %}
+
+</figure>

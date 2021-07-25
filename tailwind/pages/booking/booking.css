@@ -1,0 +1,63 @@
+
+@media screen and (max-width:664px) { 
+  .fc-toolbar.fc-header-toolbar {flex-direction:column;} 
+  .fc-toolbar-chunk { display: table-row; text-align:center; padding:5px 0; } 
+}
+
+a.fc-timegrid-event{
+  pointer-events: none;
+}
+
+.booking-title .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.booking-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -1px;
+}
+
+.booking-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 96px;
+}
+
+.booking-divider .shape-fill {
+  fill: #33384D;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .booking-divider svg {
+      width: calc(100% + 1.3px);
+      height: 56px;
+  }
+}
+
+.fc-toolbar-title{
+  color: var(--secondary-text-color) !important;
+}
+
+.fc .fc-button-primary {
+  background-color: var(--secondary-text-color) !important;
+}
+
+.fc .fc-button-primary:hover {
+  background-color: var(--primary-text-color) !important;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active{
+  background-color: var(--primary-text-color) !important;
+}
+
+tbody{
+  color: var(--secondary-text-color) !important;
+}

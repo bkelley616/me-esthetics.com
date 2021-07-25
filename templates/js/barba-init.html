@@ -1,0 +1,307 @@
+<script>
+
+const animatedNavElements = document.getElementsByClassName("animatedNavigationElement");
+const transitionText = document.getElementById("transition-text");
+
+barba.use(barbaPrefetch);
+
+barba.hooks.afterLeave(() => {
+  scroll.scrollTo("top", {duration: 0})
+});
+
+barba.hooks.after(() => {
+  scroll.update()
+}); 
+
+barba.hooks.beforeLeave((data) => {
+  switch(data.next.namespace){
+        case "home":
+          transitionText.innerHTML="Home";
+        break;
+        case "portfolio":
+          transitionText.innerHTML="Portfolio";
+        break;
+        case "booking":
+          transitionText.innerHTML="Booking";
+        break;
+        case "newsletter":
+          transitionText.innerHTML="Newsletter";
+        break;
+        default: 
+          transitionText.innerHTML="";
+        break;
+    }
+  animatedNavElements.forEach(el => el.classList.add("disable-transition"));
+});
+
+barba.hooks.afterEnter(() => {
+  animatedNavElements.forEach(el => el.classList.remove("disable-transition"));
+});
+
+function imageSkeletonLoader(){
+  var imgLoad = imagesLoaded('body');
+  imgLoad.on( 'progress', function( instance, image ) {
+  image.img.parentElement.classList.remove("loading")
+  });
+}
+ 
+barba.init({
+  preventRunning: true,
+  views: [{
+    namespace: 'home',
+    beforeEnter(data) {
+      var swiper = new Swiper(".portfolioSwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 30,
+        freeMode: true,
+        loop: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+      });
+      imageSkeletonLoader()
+    }
+  },
+  {
+    namespace: 'portfolio',
+    beforeEnter(data) {
+      imageSkeletonLoader()
+    }
+  },
+  {
+    namespace: 'portfolio-photo',
+    beforeEnter(data) {
+      imageSkeletonLoader()
+    }
+  },
+  {
+    namespace: 'booking',
+    beforeEnter(data) {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        height: "auto",
+        windowResize: function(arg) {
+          getWidth() < 500 ? calendar.changeView('timeGridDay') : calendar.changeView('timeGridWeek');
+        },
+        eventClick: function (event) {
+          event.jsEvent.preventDefault();
+        },
+        initialView: 'timeGridWeek',
+        allDaySlot: false,
+        hiddenDays: [ 0, 1 ],
+        scrollTime: '10:00:00',
+        slotMinTime: '08:00:00',
+        slotMaxTime: '22:00:00',
+        googleCalendarApiKey: 'AIzaSyCX8iuW0UjqE83ZM2c8rrF0rtirceLD0gU',
+        events: {
+          googleCalendarId: 'g1ebe5rujfm6igok0hqq2k6stg@group.calendar.google.com',
+          className: 'gcal-event'
+        },
+        eventColor: '#13538b',
+        headerToolbar: {
+          start: 'title',
+          center: 'timeGridDay,timeGridWeek',
+          end: 'today prev,next' 
+        }
+      });
+      calendar.render()
+      imageSkeletonLoader()
+    },
+
+  },
+  {
+    namespace: 'newsletter',
+    beforeEnter(data) {
+      imageSkeletonLoader()
+    }
+  },
+  {
+    namespace: '404',
+    beforeEnter(data) {
+      imageSkeletonLoader()
+    }
+  }],
+  transitions: [{
+    name: 'home-transition',
+    to: {
+      namespace: 'home'
+    },
+    async once(){
+      home_page_load_animation(0)
+    },
+    async leave(data) {
+      const done = this.async()
+      leave_transition_animation(data)
+      await delay(pageLeaveTransitionDelay + pageEnterTransitionDelay)
+      done()
+    },
+    async enter(data) {
+      enter_transition_animation(data)
+      home_page_load_animation(pageEnterTransitionDelay)
+    }
+  },
+
+  {
+    name: 'portfolio-transition',
+    to: {
+      namespace: 'portfolio'
+    },
+    async once(){
+      portfolio_page_load_animation(0)
+    },
+    async leave(data) {
+      const done = this.async()
+      leave_transition_animation(data)
+      await delay(pageLeaveTransitionDelay + pageEnterTransitionDelay)
+      done()
+    },
+    async enter(data) {
+      enter_transition_animation(data)
+      portfolio_page_load_animation(pageEnterTransitionDelay)
+    }
+  }, 
+  {
+    name: 'intra-portfolio-transition',
+    to: {
+      namespace: 'portfolio'
+    },
+    from: {
+      namespace: 'portfolio'
+    },
+    async once(){
+      portfolio_page_load_animation(0)
+    },
+    async leave(data) {
+      const done = this.async()
+      secondary_leave_transition_animation(data)
+      await delay((pageLeaveTransitionDelay + pageEnterTransitionDelay) / secondaryDivisor)
+      done()
+    },
+    async enter(data) {
+      secondary_enter_transition_animation(data)
+      portfolio_page_load_animation(pageEnterTransitionDelay / secondaryDivisor)
+    }
+  },
+  {
+    name: 'back-portfolio-photo-transition',
+    to: {
+      namespace: 'portfolio'
+    },
+    from: {
+      namespace: 'portfolio-photo'
+    },
+    async once(){
+      portfolio_page_load_animation(0)
+    },
+    async leave(data) {
+      const done = this.async()
+      secondary_leave_transition_animation(data)
+      await delay((pageLeaveTransitionDelay + pageEnterTransitionDelay) / secondaryDivisor)
+      done()
+    },
+    async enter(data) {
+      secondary_enter_transition_animation(data)
+      portfolio_page_load_animation(pageEnterTransitionDelay / secondaryDivisor)
+    }
+  },
+  {
+    name: 'portfolio-photo-transition',
+    to: {
+      namespace: 'portfolio-photo'
+    },
+    async once(){
+      portfolio_photo_page_load_animation(0)
+    },
+    async leave(data) {
+      const done = this.async()
+      secondary_leave_transition_animation(data)
+      await delay((pageLeaveTransitionDelay + pageEnterTransitionDelay) / secondaryDivisor)
+      done()
+    },
+    async enter(data) {
+      secondary_enter_transition_animation(data)
+      portfolio_photo_page_load_animation(pageEnterTransitionDelay / secondaryDivisor)
+    }
+  },
+
+  { 
+    name: 'booking-transition',
+    to: {
+      namespace: 'booking'
+    },
+    async once(){
+      booking_page_load_animation(0)
+    },
+    async leave(data) {
+      const done = this.async()
+      leave_transition_animation(data)
+      await delay(pageLeaveTransitionDelay + pageEnterTransitionDelay)
+      done()
+    },
+    async enter(data) {
+      enter_transition_animation(data)
+      booking_page_load_animation(pageEnterTransitionDelay)
+    }
+  },
+  {
+    name: 'newsletter-transition',
+    to: {
+      namespace: 'newsletter'
+    },
+    async once(){
+    newsletter_page_load_animation(0)
+    },
+    async leave(data) {
+      const done = this.async()
+      leave_transition_animation(data)
+      await delay(pageLeaveTransitionDelay + pageEnterTransitionDelay)
+      done()
+    },
+    async enter(data) {
+      enter_transition_animation(data)
+      newsletter_page_load_animation(pageEnterTransitionDelay)
+    }
+  },
+  {
+    name: 'intra-newsletter-transition',
+    to: {
+      namespace: 'newsletter'
+    },
+    from: {
+      namespace: 'newsletter'
+    },
+    async once(){
+    newsletter_page_load_animation(0)
+    },
+    async leave(data) {
+      const done = this.async()
+      secondary_leave_transition_animation(data)
+      await delay((pageLeaveTransitionDelay + pageEnterTransitionDelay) / secondaryDivisor)
+      done()
+    },
+    async enter(data) {
+      secondary_enter_transition_animation(data)
+      newsletter_page_load_animation(pageEnterTransitionDelay / secondaryDivisor)
+    }
+  },
+  
+  {
+    name: '404-transition',
+    to: {
+      namespace: '404'
+    },
+    async once(){
+      not_found_page_load_animation()
+    },
+    async leave(data) {
+      const done = this.async()
+      leave_transition_animation(data)
+      await delay(pageLeaveTransitionDelay + pageEnterTransitionDelay)
+      done()
+    },
+    async enter(data) {
+      enter_transition_animation(data)
+      not_found_page_load_animation()
+    }
+  }]
+});
+
+</script>

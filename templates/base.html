@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  {%- block head %}{% endblock %}
+
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="{{ get_url(path='/font.css') }}" />
+  <link rel="stylesheet" href="{{ get_url(path='/tailwind.css') }}" />
+  <link rel="stylesheet" href="{{ get_url(path='/assets/swiper/swiper-bundle.min.css') }}" />
+  <link rel="stylesheet" href="{{ get_url(path='/assets/locomotive-scroll/locomotive-scroll.min.css') }}" />
+  <link rel="stylesheet" href="{{ get_url(path='/assets/simplebar/simplebar.css') }}" />
+  <link rel="stylesheet" href="{{ get_url(path='/assets/fullcalendar/main.min.css') }}" />
+
+  <script src="{{ get_url(path='/assets/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ get_url(path='/assets/locomotive-scroll/locomotive-scroll.min.js') }}"></script>
+  <script src="{{ get_url(path='/assets/simplebar/simplebar.js') }}"></script>
+  <script src="{{ get_url(path='/assets/anime/anime.min.js') }}"></script>
+  <script src="{{ get_url(path='/assets/barba/barba.umd.js') }}"></script>
+  <script src="{{ get_url(path='/assets/barba/barba-prefetch.umd.js') }}"></script>
+  <script src="{{ get_url(path='/assets/focus-trap/focus-trap.min.js') }}"></script>
+  <script src="{{ get_url(path='/assets/imagesLoaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ get_url(path='/assets/fullcalendar/main.min.js') }}"> </script>
+  <script src="{{ get_url(path='/assets/alpine/alpine.min.js') }}" defer></script>
+  <style>
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+</head> 
+
+<body id="root" data-barba="wrapper">
+  {% include "js/animations/global-vars.html" %}
+  <header>
+    {% include "partials/navigation.html" %}
+    {% include "partials/scrollToTopButton.html" %}
+  </header>
+
+  <div id="transition-element"></div>
+  <div id="transition-text-container" class="">
+    <p id="transition-text" class="xs:text-7xl sm:text-8xl text-6xl">tesetst</p> 
+  </div>
+  
+  <div data-scroll-container>
+    <div data-scroll-section>
+      {% include "partials/scrollToTopContainer.html" %}
+      <main>{% block content %} {% endblock %}</main>
+      <footer>{% include "partials/footer.html" %}</footer>
+    </div> 
+  </div>
+  
+  {% include "js/animations/general-page-animations.html" %}
+  {% include "js/animations/home-page-animations.html" %}
+  {% include "js/animations/portfolio-page-animations.html" %}
+  {% include "js/animations/booking-page-animations.html" %}
+  {% include "js/animations/newsletter-page-animations.html" %}
+  {% include "js/animations/404-page-animations.html" %}
+  {% include "js/scroll-setup.html" %}
+  {% include "js/barba-init.html" %}
+</body>
+
+</html> 

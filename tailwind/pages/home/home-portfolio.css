@@ -1,0 +1,38 @@
+.home-portfolio-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  margin-bottom: -1px;
+}
+
+.home-portfolio-divider svg {
+  position: relative;
+  display: block;
+  width: calc(143% + 1.3px);
+  height: 133px;
+  transform: rotateY(180deg);
+}
+
+.home-portfolio-divider .shape-fill {
+  fill: var(--accent-pink-color-medium);
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-portfolio-divider svg {
+    width: calc(143% + 1.3px);
+    height: 81px;
+  }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .home-portfolio-divider svg {
+    width: calc(143% + 1.3px);
+    height: 44px;
+  }
+}

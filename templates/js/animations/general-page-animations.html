@@ -1,0 +1,84 @@
+<script>
+
+  function delay(n) {
+    n = n || 2000;
+    return new Promise(done => {setTimeout(() => {
+      done();
+    }, n)})
+  }
+
+  
+  function leave_transition_animation(data){
+    anime.timeline({
+      easing: 'easeInOutExpo',
+      begin: function() {
+        document.querySelector('#transition-element').style.display = 'block';
+        document.querySelector('#transition-text-container').style.display = 'block';
+      },
+    })
+    .add({
+      targets: '#transition-element',
+      duration: pageLeaveTransitionDelay,
+      translateX: ["-100%", "0%"],
+    }).add({
+      targets: '#transition-text-container',
+      duration: pageLeaveTransitionDelay,
+      opacity: ["0%", "100%"],
+      translateY: ["100%", 0]
+    }, pageLeaveTextDelay)
+    
+  }
+  
+  function enter_transition_animation(data){
+    anime.timeline({
+      easing: 'easeInOutExpo',
+      complete: function() {
+        document.querySelector('#transition-element').style.display = 'none';
+        document.querySelector('#transition-text-container').style.display = 'none';
+      },
+    })
+    .add({
+      delay: pageEnterTextDelay,
+      targets: '#transition-element',
+      duration: pageEnterTransitionDelay,
+      translateX: ["0%", "100%"],
+    }).add({
+      targets: '#transition-text-container',
+      duration: pageEnterTransitionDelay,
+      opacity: ["100%", "0%"],
+      translateY: [0, "-100%"]
+    }, 0)
+  }
+  
+  function secondary_leave_transition_animation(data){
+    anime.timeline({
+      easing: 'easeInOutQuint',
+      begin: function() {
+        document.querySelector('#transition-element').style.display = 'block';
+      },
+    })
+    .add({
+      targets: '#transition-element',
+      duration: pageLeaveTransitionDelay / secondaryDivisor,
+      translateX: ["-100%", "0%"],
+      skewX: [10, 0]
+    })
+    
+  }
+  
+  function secondary_enter_transition_animation(data){
+    anime.timeline({
+      easing: 'easeInOutQuint',
+      complete: function() {
+        document.querySelector('#transition-element').style.display = 'none';
+      },
+    })
+    .add({
+      delay: 100,
+      targets: '#transition-element',
+      duration: pageEnterTransitionDelay / secondaryDivisor,
+      translateX: ["0%", "100%"],
+    })
+  }  
+
+</script>

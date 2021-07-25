@@ -1,0 +1,43 @@
+h1 {
+  @apply text-primary-text-color text-5xl font-bold leading-normal mt-0 mb-2;
+}
+
+h2 {
+  @apply text-primary-text-color text-4xl font-bold leading-normal mt-0 mb-2;
+}
+
+h3 {
+  @apply text-primary-text-color text-3xl font-bold leading-normal mt-0 mb-2;
+}
+
+h4 {
+  @apply text-primary-text-color text-2xl font-bold leading-normal mt-0 mb-2;
+}
+
+h5 {
+  @apply text-primary-text-color text-xl font-bold leading-normal mt-0 mb-2;
+}
+
+h6 {
+  @apply text-primary-text-color text-lg font-bold leading-normal mt-0 mb-2;
+}
+
+a.content-link {
+  color: var(--accent-sapphire-color);
+  box-shadow: inset 0 -0.125em 0 0 white,
+    inset 0 -0.375em 0 0 var(--accent-sapphire-color-lowlight);
+  font-weight: 500;
+}
+
+a.content-link:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+  box-shadow: inset 0 -0.125em 0 0 white,
+    inset 0 -0.375em 0 0 var(--accent-sapphire-color-lowlight),
+    0 0 0 2px var(--accent-sapphire-color);
+}
+a.content-link:hover,
+a.content-link:active {
+  color: var(--accent-sapphire-color);
+}

@@ -1,0 +1,45 @@
+<script>
+  //https://tobiasahlin.com/moving-letters/#10
+  function portfolio_page_load_animation(wait) {
+    var textWrapper = document.querySelector('.portfolio-title .letters');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>"); 
+
+    anime.timeline()
+      .add({
+        duration: wait,
+      })
+      .add({
+        easing: 'easeOutExpo',
+        targets: '.portfolio-title .letter',
+        rotateY: [-90, 0],
+        duration: 1300,
+        delay: (el, i) => 45 * i
+      })
+      .add({
+        easing: 'linear',
+        targets: '#portfolio-image',
+        opacity: [0, 1],
+        duration: 1500,
+        delay: anime.stagger(250) 
+      }, 0)
+  }
+
+  function portfolio_photo_page_load_animation(wait) {
+    anime.timeline()
+      .add({
+        duration: wait,
+      })
+      .add({
+        easing: 'linear',
+        targets: '#photo-card',
+        opacity: [0, 1],
+        duration: 2000,
+      }, 0)
+      .add({
+        easing: 'easeOutQuad',
+        targets: '#photo-card',
+        translateY: ["50%", 0],
+        duration: 2000,
+      }, 0)
+  }
+</script>

@@ -1,0 +1,37 @@
+.not-found-404-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  margin-bottom: -1px;
+}
+
+.not-found-404-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 72px;
+}
+
+.not-found-404-divider .shape-fill {
+  fill: var(--accent-slate-color);
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .not-found-404-divider svg {
+      width: calc(100% + 1.3px);
+      height: 66px;
+  }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .not-found-404-divider svg {
+      width: calc(100% + 1.3px);
+      height: 47px;
+  }
+}

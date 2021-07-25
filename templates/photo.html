@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Portfolio - {{ page.title }}</title>
+<meta name="description" content="{{ page.description }}" />
+{% endblock head %}
+
+{% block content %}
+<div data-barba="container" data-barba-namespace="portfolio-photo" class="text-primary-text-color bg-accent-lightgrey-color">
+  <section class="relative min-h-screen">
+    <section
+      class="mx-auto bg-accent-pink-color-medium w-full pt-16 pb-12 md:pb-0 md:pt-6 md:h-52 flex flex-col justify-start font-black">
+      <p class="portfolio-title text-5xl xs:text-6xl sm:text-7xl text-center mt-4">
+        <span class="text-wrapper">
+          <span class="letters">Portfolio</span>
+        </span>
+      </p>
+    </section>   
+    <section class="max-w-7xl mx-auto -mt-10 md:-mt-16 lg:-mt-12 pb-32">
+      <div id="photo-card" class="flex justify-center">
+        <div class="inline-flex flex-col lg:flex-row justify-center lg:items-start bg-white shadow-lg">
+          <div class="loading">
+            <img id="card-image" class="mx-auto w-60 h-60 xxs:w-64 xxs:h-64 xs:w-80 xs:h-80 sm:w-132 sm:h-132" src="/assets/images/{{ page.extra.image | safe }}">
+          </div>
+          <div class="w-60 xxs:w-64 xs:w-80 sm:w-116  justify-start p-2 xs:p-4 md:p-4 mb-2 xl:mb-2 ">
+            <div> 
+              <p class="text-xl sm:text-2xl font-bold mt-2 text-center xs:text-left ">Products Used:</p>
+              <div class="mt-2 hidden xs:block">
+                {% for product in page.extra.products %}
+                  <span class="rounded-full text-base bg-accent-powderblue-color px-3 py-0.5 mx-0.5 my-1 photo-line-height inline-block">{{product.name}}</span>
+                {% endfor %} 
+              </div>
+              <div class="mt-2 text-center xs:hidden">
+                {% for product in page.extra.products %}
+                  <span class="rounded-full bg-accent-powderblue-color px-3 py-1 mx-0.5 photo-line-height">{{product.name}}</span><br>
+                {% endfor %} 
+              </div>
+            </div>
+            <p class="mt-4 text-lg sm:text-xl text-center xs:text-left">{{ page.description }}</p>
+          </div>
+        </div>
+      </div>
+    </section>   
+    {% include "svg/dividers/portfolio-divider.html" %}
+  </section> 
+</div>   
+
+{% endblock content %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %} 
+
+{% block head %}
+<title>Booking</title>
+<meta name="description" content="Booking Page" />
+{% endblock head %} 
+
+{% block content %} 
+<div data-barba="container" data-barba-namespace="booking" class="text-primary-text-color bg-accent-lightgrey-color">
+  <section class="relative min-h-screen ">
+    <section class="mx-auto bg-accent-pink-color-medium w-full pt-16 pb-12 md:pb-0 md:pt-6 md:h-52 flex flex-col justify-start font-black">
+      <p class="booking-title text-5xl xs:text-6xl sm:text-7xl text-center mt-4">
+        <span class="text-wrapper">
+          <span class="letters">Booking</span>
+        </span>
+      </p>
+    </section>
+    <section class="pb-32">
+      <div class="mx-auto flex max-w-full justify-center">
+        <div class="my-8 px-4 hidden 2xl:block flex flex-col">
+          <div id="fade-in-container" class="w-80 bg-white shadow-lg p-4 rounded-lg -mt-16 md:-mt-20 lg:-mt-24">
+            <div class="my-2">
+              <p class="text-2xl font-bold text-center">Hours</p>
+              <div class="text-xl text-center font-semibold mt-2"><p>Sunday: Closed</p><p class="mt-2">Monday: Closed</p><p class="mt-2">Tuesday: 10am - 7pm</p><p class="mt-2">Wednesday: 10am - 7pm</p><p class="mt-2">Thursday: 10am - 7pm</p><p class="mt-2">Friday: 9am - 5pm</p><p class="mt-2">Saturday: 9am - 5pm</p></div>
+            </div>
+          </div>
+          <div id="fade-in-container" class="w-80 bg-white shadow-lg p-4 rounded-lg mt-8">
+            <div class="my-2">
+              <p class="text-2xl font-bold text-center">How to Book</p>
+              <div class="text-lg text-center font-semibold mt-2">
+                <p class="mt-3">The calendar is synced to my google calendar where I add all my booked appointments.</p>
+                <p class="mt-3">Make sure that the time you are looking for is <span class="font-bold">not</span> already booked.</p> 
+                <p class="mt-3">Then schedule an appointment by call, text, or <a class="content-link" href="https://www.instagram.com/morganelaineesthetics/">Instagram</a></p>
+                <p class="mt-3 text-base italic">*All new clients will have to go through Instagram until they have my personal number</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-8 px-4 ">
+          <div class="-mt-20 lg:-mt-24">
+            <div id="fade-in-container" x-data="{ showDetails: false }" class="bg-white rounded-lg shadow-lg p-4 my-8 2xl:hidden">
+              <div @resize.window="showDetails = false" @click="showDetails = !showDetails; $nextTick(() => { setTimeout(function(){ scroll.update(); }, 1000);});" class="flex items-center justify-between hover:text-accent-sapphire-color-dark">
+                <p class="font-bold text-2xl">Booking Details</p> 
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 chevron" viewBox="0 0 20 20" fill="currentColor" x-bind:class="showDetails ? 'rotate-chevron' : ''">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="transition-all ease-in-out duration-1000 max-h-0 overflow-hidden" x-cloak x-ref="dropdownContainer" x-bind:style="showDetails ? `max-height:${$refs.dropdownContainer.scrollHeight}px` : ''">
+                <div class="flex flex-col sm:flex-row sm:justify-around sm:flex-row mt-4">
+                  <div class="my-2 px-2">
+                    <p class="text-2xl font-bold text-center">Hours</p>
+                    <div class="text-xl text-center font-semibold mt-2"><p>Sunday: Closed</p><p class="mt-2">Monday: Closed</p><p class="mt-2">Tuesday: 10am - 7pm</p><p class="mt-2">Wednesday: 10am - 7pm</p><p class="mt-2">Thursday: 10am - 7pm</p><p class="mt-2">Friday: 9am - 5pm</p><p class="mt-2">Saturday: 9am - 5pm</p></div>
+                  </div>
+
+                  <div class="my-2">
+                    <p class="text-2xl font-bold text-center mt-6 sm:mt-0">How to Book</p>
+                    <div class="text-lg text-center font-semibold mt-2 max-w-xs mx-auto">
+                      <p class="mt-3">The calendar is synced to my google calendar where I add all my booked appointments.</p>
+                      <p class="mt-3">Make sure that the time you are looking for is <span class="font-bold">not</span> already booked.</p> 
+                      <p class="mt-3">Then schedule an appointment by call, text, or <a class="content-link" href="https://www.instagram.com/morganelaineesthetics/">Instagram</a></p>
+                      <p class="mt-3 text-base italic">*All new clients will have to go through Instagram until they have my personal number</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="fade-in-container" class="max-w-5xl bg-white shadow-lg p-4 rounded-lg ">
+              <div id='calendar'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% include "svg/dividers/booking-divider.html" %}
+  </section>
+</div>
+
+{% endblock content %}

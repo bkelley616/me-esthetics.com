@@ -1,0 +1,22 @@
+<script>
+  //https://tobiasahlin.com/moving-letters/#7
+  function newsletter_page_load_animation(wait) {
+    var textWrapper = document.querySelector('.newsletter-title .letters');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({easing: 'easeOutExpo'})
+      .add({
+          duration: wait,
+        })
+      .add({
+        targets: '.newsletter-title .letter',
+        translateY: ["1.1em", 0],
+        translateX: ["0.55em", 0],
+        translateZ: 0,
+        rotateZ: [180, 0],
+        duration: 750,
+        easing: "easeOutExpo",
+        delay: (el, i) => 50 * i
+      })
+  }
+</script>

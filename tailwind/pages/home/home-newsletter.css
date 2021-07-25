@@ -1,0 +1,36 @@
+#home-newsletter-section {
+
+}
+
+
+.home-newsletter-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  margin-bottom: -1px;
+}
+
+.home-newsletter-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 90px;
+  transform: rotateY(180deg);
+}
+
+.home-newsletter-divider .shape-fill {
+  fill: var(--accent-slate-color);
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .home-newsletter-divider svg {
+      width: calc(100% + 1.3px);
+      height: 44px;
+  }
+}
+

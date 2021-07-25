@@ -1,0 +1,83 @@
+.fade-in {
+  opacity: 0;
+  transition: all 4s;
+}
+
+.fade-in-button {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1.5s;
+  transition-delay: 1.5s;
+}
+
+.fade-in-apply {
+  opacity: 1;
+}
+
+.fade-in-apply .fade-in-button{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-up-apply .fade-in-button{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left-apply .fade-in-button{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-right-apply .fade-in-button{
+  opacity: 1;
+  transform: translateY(0);
+}
+.transition-up {
+  transform: translateY(50%);
+  transition: all 2.5s;
+}
+
+.transition-up-apply {
+  transform: translateY(0);
+}
+
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: all 2.5s;
+}
+
+.fade-in-up-content {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: all 1.0s;
+}
+
+.fade-in-up-apply {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 2.5s;
+}
+
+.fade-in-left-apply {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 2.5s;
+}
+
+.fade-in-right-apply {
+  transform: translateX(0);
+  opacity: 1;
+}

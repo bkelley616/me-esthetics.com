@@ -1,0 +1,56 @@
+<section id="navigation" x-data="{ showMenu: false }" @keydown.escape.window="showMenu = false; scroll.start();">
+
+  <button x-show="!showMenu"
+    @click="showMenu = true; scroll.stop(); navFocusTrap.activate(); $nextTick(() => { document.getElementById('close-menu').focus();});"
+    class="menu-button bg-accent-sapphire-color hover:bg-accent-sapphire-color-dark hover:cursor-pointer fixed top-0 right-0 z-50 flex items-center justify-center w-16 h-16 mt-6 mr-6 text-white rounded-full shadow-2xl"
+    x-transition:enter="duration-300 ease-out delay-1000" x-transition:enter-start="-translate-y-full opacity-0"
+    x-transition:enter-end="-translate-y-0 opacity-100" x-transition:leave="duration-300 ease-in"
+    x-transition:leave-start="-translate-y-0" x-transition:leave-end="-translate-y-full" tabindex=1>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+      </svg>
+    </div>
+  </button>
+
+  <button id="close-menu" x-cloak x-show="showMenu"
+    @click="showMenu = false; navFocusTrap.deactivate(); scroll.start();"
+    class="text-primary-text-color hover:cursor-pointer hover:text-red-600 fixed top-0 right-0 z-50 flex items-center justify-center mt-6 mr-6"
+    x-transition:enter="duration-700 ease-in-out delay-700" x-transition:enter-start="opacity-0 scale-95"
+    x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-300 ease-in-out"
+    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" tabindex=0>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 transition-colors duration-100" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button> 
+  <nav  x-cloak x-show="showMenu" class="animatedNavigationElement bg-accent-powderblue-color-dark fixed z-40 w-full h-screen"
+    x-transition:enter="duration-700 ease-in-out" x-transition:enter-start="h-0" x-transition:enter-end="h-screen"
+    x-transition:leave="duration-700 ease-in-out delay-300" x-transition:leave-start="h-screen"
+    x-transition:leave-end="h-0">
+
+    <div  x-show="showMenu" class="animatedNavigationElement bg-accent-mauve-color fixed z-40 w-full h-screen"
+      x-transition:enter="duration-700 ease-in-out delay-300" x-transition:enter-start="h-0"
+      x-transition:enter-end="h-screen" x-transition:leave="duration-700 ease-in-out"
+      x-transition:leave-start="h-screen" x-transition:leave-end="h-0"></div>
+
+    <div id="navScroll" x-show="showMenu" class="fixed z-40 w-full h-full py-32 overflow-auto transform"
+      x-transition:enter="duration-700 ease-in-out delay-700" x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-300 ease-in-out"
+      x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
+      <div class="xs:space-y-10 sm:space-y-10 md:space-y-14 flex flex-col items-center justify-center space-y-10">
+        <a @click="navFocusTrap.deactivate(); scroll.start(); $nextTick(() => { setTimeout(function(){ showMenu = false; }, pageLeaveTransitionDelay);});" href="/" class="menu-link">Home</a>
+        <a @click="navFocusTrap.deactivate(); scroll.start(); $nextTick(() => { setTimeout(function(){ showMenu = false; }, pageLeaveTransitionDelay);});" href="/portfolio" class="menu-link">Portfolio</a>
+        <a @click="navFocusTrap.deactivate(); scroll.start(); $nextTick(() => { setTimeout(function(){ showMenu = false; }, pageLeaveTransitionDelay);});" href="/booking" class="menu-link">Booking</a>
+        <a @click="navFocusTrap.deactivate(); scroll.start(); $nextTick(() => { setTimeout(function(){ showMenu = false; }, pageLeaveTransitionDelay);});" href="/newsletter" class="menu-link">Newsletter</a>
+      </div>
+
+    </div>
+
+    </div>
+    <script>
+      navFocusTrap = focusTrap.createFocusTrap('#navigation', []);
+    </script>
+</section>

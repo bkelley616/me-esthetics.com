@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Portfolio</title>
+<meta name="description" content="Portfolio Page" />
+{% endblock head %}
+
+{% block content %}
+<div data-barba="container" data-barba-namespace="portfolio" class="text-primary-text-color bg-accent-lightgrey-color">
+  <section class="relative min-h-screen">
+    <section
+      class="mx-auto bg-accent-pink-color-medium w-full pt-16 pb-12 md:pb-0 md:pt-6 md:h-52 flex flex-col justify-start font-black">
+      <p class="portfolio-title text-5xl xs:text-6xl sm:text-7xl text-center mt-4">
+        <span class="text-wrapper">
+          <span class="letters">Portfolio</span>
+        </span>
+      </p>
+    </section> 
+    <section class="max-w-7xl mx-auto -mt-24 lg:-mt-24">
+      <div class="grid max-w-lg grid-cols-1 gap-8 mx-auto mt-16 md:max-w-none portfolio_2_col:grid-cols-2 xl:grid-cols-3 px-8">
+        {% for page in paginator.pages %}
+        <div data-scroll data-scroll-offset="5%, 0%" data-scroll-class="transition-up-apply" class="transition-up flex">
+        {% if loop.index is odd %}
+          <a id="portfolio-image" href="{{ page.permalink | safe }}" class="group loading card-link mx-auto portfolio_2_col:ml-auto portfolio_2_col:mr-0 bg-white px-2 pt-2 pb-3 xs:px-3 xs:pt-3 xs:pb-4 shadow-lg duration-400 transition-card transform hover:-translate-y-2 hover:shadow-blue focus:-translate-y-2 focus:shadow-blue">
+          {% else %}
+          <a id="portfolio-image" href="{{ page.permalink | safe }}" class="group loading card-link mx-auto portfolio_2_col:ml-0 portfolio_2_col:mr-auto bg-white px-2 pt-2 pb-3 xs:px-3 xs:pt-3 xs:pb-4 shadow-lg duration-400 transition-card transform hover:-translate-y-2 hover:shadow-blue focus:-translate-y-2 focus:shadow-blue"> 
+          {% endif %}
+            <img id="card-image" class="object-cover w-48 h-48 xxs:w-60 xxs:h-60 xs:w-72 xs:h-72 sm:w-96 sm:h-96" src="/assets/images/thumbnail/{{ page.extra.image | safe }}">
+            <div class="mt-3 xs:mt-4 mx-2 flex justify-between items-center group-hover:text-accent-sapphire-color-dark">
+              <p class="font-black text-xl xs:text-2xl handwriting">{{page.date | date(format="%B %e, %Y")}}</p>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </div>
+          </a>
+        </div> 
+
+        {% endfor %}
+        </div>
+    </section>   
+
+    <section data-scroll data-scroll-offset="5%, 0%" data-scroll-class="fade-in-up-apply" class="fade-in-up w-72 xs:w-96 sm:w-120 portfolio_2_col:w-333 xl:w-320 px-8 mx-auto pb-32">
+      {% include "partials/paginator.html" %}
+    </section>      
+
+    {% include "svg/dividers/portfolio-divider.html" %}
+  </section> 
+</div> 
+
+{% endblock content %}

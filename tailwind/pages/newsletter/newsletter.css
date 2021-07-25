@@ -1,0 +1,65 @@
+.newsletter-title {
+  position: relative;
+  font-size: 3.7em;
+}
+
+.newsletter-title .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.newsletter-title .letter {
+  transform-origin: 0 100%;
+  display: inline-block;
+  line-height: 1em;
+}
+
+.chevron{
+  transition: transform 0.3s;
+}
+.rotate-chevron {
+  transition: transform 0.3s;
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.newsletter-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -1px;
+}
+
+.newsletter-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 79px;
+}
+
+.newsletter-divider .shape-fill {
+  fill: #33384D;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .newsletter-divider svg {
+      width: calc(100% + 1.3px);
+      height: 92px;
+  }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .newsletter-divider svg {
+      width: calc(100% + 1.3px);
+      height: 58px;
+  }
+}

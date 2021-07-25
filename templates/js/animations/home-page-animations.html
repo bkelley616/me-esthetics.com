@@ -1,0 +1,23 @@
+<script>
+  function home_page_load_animation(wait){
+      anime.timeline({
+        easing: 'easeOutExpo'
+      })
+      .add({
+        duration: wait,
+      })
+      .add({
+        targets: '#hero-section-image-wrapper',
+        duration: 5000,
+        opacity: "100%",
+      })
+      .add({
+        targets: '#hero-section-text',
+        delay: anime.stagger(500),
+        duration: 4000,
+        opacity: "100%",
+      },'-=4000')
+  }
+
+
+</script>    

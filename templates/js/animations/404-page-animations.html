@@ -1,0 +1,25 @@
+<script>
+  function not_found_page_load_animation() {
+    anime.timeline({
+      easing: 'easeOutExpo'
+    })
+      .add({
+        targets: '#not-found-header',
+        duration: 2000,
+        delay: anime.stagger(150),
+        opacity: "100%",
+        translateY: ["-100%", 0]
+      })
+      .add({
+        targets: '#return-home-drawing-wrapper',
+        duration: 3500,
+        opacity: "100%",
+      }, '-=1500')
+      .add({
+        targets: '#return-home-button-wrapper',
+        duration: 2000,
+        opacity: "100%",
+        translateY: ["100%", 0],
+      }, '-=2750')
+  }
+</script> 

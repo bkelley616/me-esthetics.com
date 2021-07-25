@@ -1,0 +1,37 @@
+.home-booking-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -1px;
+}
+
+.home-booking-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 106px;
+  transform: rotateY(180deg);
+}
+
+.home-booking-divider .shape-fill {
+  fill: var(--accent-lightgrey-color);
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-booking-divider svg {
+      width: calc(100% + 1.3px);
+      height: 90px;
+  }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .home-booking-divider svg {
+      width: calc(100% + 1.3px);
+      height: 44px;
+  }
+}

@@ -1,0 +1,25 @@
+<div id="scroll-to-top-threshold-container" class="scroll-to-top-threshold-container intersecting"></div>
+
+<script>
+  let scrollToTopThresholdContainer = document.getElementById("scroll-to-top-threshold-container")
+  let scrollToTopButton = document.getElementById("scroll-to-top-button")
+  let rootElement = document.documentElement
+
+  function scrollToTop() { 
+    scroll.scrollTo("top")
+  }
+
+  function showScrollToTopButton(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        scrollToTopButton.classList.add("intersecting")
+      }
+      else{
+        scrollToTopButton.classList.remove("intersecting")
+      }
+    })  
+  }
+
+  let observer = new IntersectionObserver(showScrollToTopButton);
+  observer.observe(scrollToTopThresholdContainer);
+</script>

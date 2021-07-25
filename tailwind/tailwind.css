@@ -1,0 +1,203 @@
+@import "tailwindcss/base";
+
+@import "./pages/home/home-booking.css";
+@import "./pages/home/home-hero-section.css";
+@import "./pages/home/home-certification.css";
+@import "./pages/home/home-portfolio.css";
+@import "./pages/home/home-newsletter.css";
+@import "./pages/home/home-swiper.css";
+@import "./pages/portfolio/portfolio.css";
+@import "./pages/booking/booking.css";
+@import "./pages/newsletter/newsletter.css";
+@import "./pages/not-found/404.css";
+@import "./animation/page-transition.css";
+@import "./animation/scroll-transitions.css";
+@import "./markdown/generic.css";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.root,
+#root,
+#docs-root {
+  --primary-text-color: #0d1227;
+  --secondary-text-color: #0d1227de;
+  --tertiary-text-color: #0d1227b8;
+  --faded-text-color: #0d122799;
+
+  --accent-lightgrey-color: #eeeeee;
+  --accent-slate-color: #33384d;
+  --accent-purple-color: #DCD0FF;
+  --accent-mauve-color: #d9a5b3;
+  --accent-pink-color: #d2c2c5;
+  --accent-pink-color-medium: #e0abbb;
+  --accent-pink-color-dark: #d58ea3;
+  --accent-yellow-color: #e9d01d;
+  --accent-powderblue-color: #c6d7eb;
+  --accent-powderblue-color-medium: #a5c0df;
+  --accent-powderblue-color-dark: #759ece;
+  --accent-sapphire-color: #1868ae;
+  --accent-sapphire-color-dark: #13538b;
+  --accent-sapphire-color-lowlight: #79b9f146;
+}
+
+@layer base {
+
+  ::selection {
+    color: var(--primary-text-color);
+    background: var(--accent-yellow-color);
+  }
+
+  .disable-transition{
+    transition: none !important;
+  }
+
+  .handwriting {
+    font-family: Shadows-Into-Light-Two;
+  }
+
+  a {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-sapphire-color focus:rounded;
+  }
+
+  a.card-link {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-sapphire-color;
+  }
+
+  a.footer-link {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-yellow-color focus:rounded;
+  }
+
+  a.button-link {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-sapphire-color focus:rounded-full;
+  }
+
+  *.disable-default-focus {
+    @apply focus:outline-none focus:ring-0 focus:rounded-none;
+  }
+
+  *.disable-default-focus:active {
+    @apply ring-0 rounded-none outline-none;
+  }
+
+  /*underline animation: https://nerdcowboy.com/blog/sliding-underlined-links/*/
+  a.menu-link {
+    @apply xs:text-7xl sm:text-8xl focus:outline-none focus:ring-4 focus:ring-accent-sapphire-color focus:rounded text-6xl;
+    font-family: Atmosphere;
+    color: var(--accent-slate-color);
+    text-decoration: none;
+    background-image: linear-gradient(
+      var(--accent-sapphire-color),
+      var(--accent-sapphire-color)
+    );
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+  a.menu-link:hover,
+  a.menu-link:focus {
+    background-size: 100% 0.1em;
+    color: var(--primary-text-color);
+  }
+
+  a.menu-link:active {
+    transition: none;
+    background-size: 100% 0.1em;
+    color: var(--primary-text-color);
+  }
+
+  button {
+    @apply focus:outline-none focus:ring-4 focus:ring-accent-sapphire-color focus:rounded;
+  }
+
+  button.menu-button {
+    @apply focus:outline-none focus:ring-4 focus:ring-accent-yellow-color focus:rounded-full;
+  }
+
+  @keyframes load {
+    from {
+        left: -100%;
+    }
+    to   {
+        left: 100%;
+    }
+  }
+
+  .loading{
+    position: relative;
+    overflow: hidden;
+  }
+
+  .loading *{
+    visibility: hidden;
+  }
+
+  .loading::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      #E8E8E8 50%,
+      transparent 100%
+    ) !important;
+    animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+  }
+
+  .paginator {
+    @apply disable-default-focus border-t-2 border-transparent pt-4 inline-flex items-center text-sm font-medium text-tertiary-text-color hover:text-accent-sapphire-color-dark hover:border-accent-sapphire-color focus:text-accent-sapphire-color-dark focus:border-accent-sapphire-color;
+  }
+
+  .paginator-icon {
+    @apply h-5 w-5 text-tertiary-text-color group-hover:text-accent-sapphire-color-dark group-focus:text-accent-sapphire-color-dark;
+  }
+
+  .transition-card{
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .photo-line-height{
+    line-height: 2.25rem;
+  }
+
+  .scroll-to-top-threshold-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 150vh;
+    width: 100vw;
+    z-index: -1;
+  }
+
+  .scroll-to-top-button {
+    @apply bg-accent-sapphire-color shadow-2xl text-white flex justify-center p-3 rounded-xl focus:rounded-xl focus:outline-none focus:ring-4 focus:ring-accent-yellow-color focus:rounded-xl;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.2s ease;
+    z-index: 30;
+  }
+  button.scroll-to-top-button:focus,
+  button.scroll-to-top-button:hover {
+    border-radius: 0.75;
+    background-color: var(--accent-sapphire-color-dark);
+  }
+
+  .scroll-to-top-button.intersecting {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}

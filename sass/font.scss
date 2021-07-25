@@ -1,0 +1,61 @@
+
+html, body { font-family: "Inter", BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif; }
+  @supports (font-variation-settings: normal) {
+    html, body { font-family: "Inter-var","Inter", BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif; }
+  }
+
+@font-face {
+  font-family: 'Inter-var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url("/assets/font/Inter-roman.var.woff2?v=3.18") format("woff2");
+}
+@font-face {
+  font-family: 'Inter-var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url("/assets/font/Inter-italic.var.woff2?v=3.18") format("woff2");
+}
+
+/* inter-regular - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/font/inter-v3-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/assets/font/inter-v3-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/font/inter-v3-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/assets/font/inter-v3-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/assets/font/inter-v3-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/assets/font/inter-v3-latin-regular.svg#Inter') format('svg'); /* Legacy iOS */
+}
+
+
+
+@font-face {
+  font-family: 'Atmosphere';
+  src: url('/assets/font/atmosphere-regular-webfont.woff2') format('woff2'),
+       url('/assets/font/atmosphere-regular-webfont.woff') format('woff'),
+       url("/assets/font/Atmosphere-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* shadows-into-light-two-regular - latin */
+@font-face {
+  font-family: 'Shadows-Into-Light-Two';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/font/shadows-into-light-two-v8-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/assets/font/shadows-into-light-two-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/font/shadows-into-light-two-v8-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/assets/font/shadows-into-light-two-v8-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/assets/font/shadows-into-light-two-v8-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/assets/font/shadows-into-light-two-v8-latin-regular.svg#ShadowsIntoLightTwo') format('svg'); /* Legacy iOS */
+}

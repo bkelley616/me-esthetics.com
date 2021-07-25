@@ -1,0 +1,41 @@
+{
+  "name": "morgan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "zola-build": "zola build",
+    "zola-watch": "zola serve",
+    "tailwind-build": "cross-env NODE_ENV=development TAILWIND_MODE=build postcss tailwind/tailwind.css -o public/tailwind.css",
+    "tailwind-watch": "cross-env NODE_ENV=development TAILWIND_MODE=watch postcss tailwind/tailwind.css -o public/tailwind.css -w",
+    "tailwind-prod": "cross-env NODE_ENV=production TAILWIND_MODE=build postcss tailwind/tailwind.css -o public/tailwind.css",
+    "prod-build": "zola build && cross-env NODE_ENV=production TAILWIND_MODE=build postcss tailwind/tailwind.css -o public/tailwind.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@barba/core": "^2.9.7",
+    "@barba/prefetch": "^2.1.10",
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/forms": "^0.3.2",
+    "@tailwindcss/line-clamp": "^0.2.0",
+    "@tailwindcss/typography": "^0.4.0",
+    "alpinejs": "^3.0.8",
+    "animejs": "^3.2.1",
+    "autoprefixer": "^10.2.5",
+    "focus-trap": "^6.6.0",
+    "fullcalendar": "^5.8.0",
+    "imagesloaded": "^4.1.4",
+    "locomotive-scroll": "^4.1.1",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.2",
+    "simplebar": "^5.3.4",
+    "swiper": "^6.7.0",
+    "tailwindcss": "^2.1.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.2",
+    "postcss": "^8.2.15"
+  }
+}

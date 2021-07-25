@@ -1,0 +1,22 @@
+<script>
+    (function () {
+    window.scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+      smartphone: { smooth: true }, 
+      tablet: { smooth: true }
+    })
+  })()
+
+  setTimeout(function () {
+    scroll.destroy()
+    window.scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+      smartphone: { smooth: true }, 
+      tablet: { smooth: true }
+    })
+  }, 75);
+
+  new SimpleBar(document.getElementById('navScroll'));
+</script> 

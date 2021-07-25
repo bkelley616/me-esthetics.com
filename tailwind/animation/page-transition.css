@@ -1,0 +1,25 @@
+#transition-element{
+  display: none;
+  position: absolute;
+  z-index: 100;
+  height: 100vh;
+  width: 100vw;
+
+  background-color: var(--accent-purple-color);
+}
+
+#transition-text-container{
+  display: none;
+  font-family: Atmosphere;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1000;
+  color: var(--primary-text-color)
+}
+#transition-text {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
