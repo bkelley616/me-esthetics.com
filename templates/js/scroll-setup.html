@@ -9,7 +9,7 @@
     })
   })()
 
-  setTimeout(function () {
+  window.addEventListener("load", function(){
     scroll.destroy()
     window.scroll = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
@@ -18,7 +18,7 @@
       tablet: { smooth: true },
       touchMultiplier: 2.5,
     })
-  }, 75);
+  })
 
   new SimpleBar(document.getElementById('navScroll'));
 </script> 
